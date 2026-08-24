@@ -40,10 +40,42 @@ do
             {
                 descuento = totalVenta * descuentoCinco;
             }
-            decimal total = totalVenta - descuento;
+            
+            string? metodoPago = "";
+            const decimal descuentoEfectivo = 0.10m;
+            const decimal recargoCredito = 0.15m;
+            decimal descuentoE = 0;
+            decimal recargoC = 0;
+            do
+            {
+                Console.WriteLine($"Elija un modo de pago:");
+                Console.WriteLine($"1 - Efectivo");
+                Console.WriteLine($"2 - Debito");
+                Console.WriteLine($"3 - Credito");
+                metodoPago = Console.ReadLine();
+                switch (metodoPago)
+                {
+                    case "1":
+                        descuentoE = totalVenta * descuentoEfectivo;
+                        break;
+                    case "2":
+                        break;
+                    case "3":
+                        recargoC = totalVenta * recargoCredito;
+                        break;
+                    default:
+                        Console.WriteLine($"Ingrese una opcion valida");
+                        break;
+                }
+            } while (metodoPago != "1" && metodoPago != "2" && metodoPago != "3");
+            decimal totalFinal = totalVenta - descuento - descuentoE + recargoC;
+
             Console.WriteLine($"Subtotal: {totalVenta}");
             Console.WriteLine($"Descuento: {descuento}");
-            Console.WriteLine($"Precio Final: {total}");
+            Console.WriteLine($"Descuento por Efectivo: {descuentoE}");
+            Console.WriteLine($"Recargo pro Credito: {recargoC}");
+            Console.WriteLine($"Precio Final: {totalFinal}");
+
             break;
 
         default:
