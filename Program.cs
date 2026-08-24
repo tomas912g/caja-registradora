@@ -28,7 +28,22 @@ do
             break;
 
         case "2":
-            Console.WriteLine($"Venta Finalizada. Se cargaron {cantidadProductos} productos. Total: {totalVenta}");
+            Console.WriteLine($"Venta Finalizada. Se cargaron {cantidadProductos} productos.");
+            const decimal descuentoDiez = 0.10m;
+            const decimal descuentoCinco = 0.05m;
+            decimal descuento = 0;
+            if (totalVenta > 50000)
+            {
+                descuento = totalVenta * descuentoDiez;
+            }
+            else if (totalVenta > 20000)
+            {
+                descuento = totalVenta * descuentoCinco;
+            }
+            decimal total = totalVenta - descuento;
+            Console.WriteLine($"Subtotal: {totalVenta}");
+            Console.WriteLine($"Descuento: {descuento}");
+            Console.WriteLine($"Precio Final: {total}");
             break;
 
         default:
