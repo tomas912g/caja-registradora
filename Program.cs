@@ -70,12 +70,24 @@ do
             } while (metodoPago != "1" && metodoPago != "2" && metodoPago != "3");
             decimal totalFinal = totalVenta - descuento - descuentoE + recargoC;
 
-            Console.WriteLine($"Subtotal: {totalVenta}");
-            Console.WriteLine($"Descuento: {descuento}");
-            Console.WriteLine($"Descuento por Efectivo: {descuentoE}");
-            Console.WriteLine($"Recargo pro Credito: {recargoC}");
-            Console.WriteLine($"Precio Final: {totalFinal}");
+            decimal descuentoTotal = descuento + descuentoE;
 
+            string guiones = "";
+            for(int i = 0; i < 30; i++)
+            {
+                guiones += "-";
+            }
+            Console.WriteLine(guiones);
+            Console.WriteLine($"     {nombre_kiosko}");
+            Console.WriteLine(guiones);
+            Console.WriteLine($"Cajero: {nombre_cajerx}");
+            Console.WriteLine($"Productos: {cantidadProductos}");
+            Console.WriteLine($"Subtotal: {totalVenta}");
+            Console.WriteLine($"Descuento: {descuentoTotal}");
+            Console.WriteLine($"Recargo pro Credito: {recargoC}");
+            Console.WriteLine(guiones);
+            Console.WriteLine($"Precio Final: {totalFinal}");
+            Console.WriteLine(guiones);
             break;
 
         default:
